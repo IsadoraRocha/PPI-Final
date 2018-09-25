@@ -4,12 +4,6 @@
     <list default="true" id="0ae60a0b-3975-4334-8a59-5d7c262fa6d5" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/css/acessoRestritoCSS.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/css/indexCSS.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jQuery/animations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acessoRestrito.html" beforeDir="false" afterPath="$PROJECT_DIR$/acessoRestrito.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/acessoRestritoCSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/acessoRestritoCSS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/indexCSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/indexCSS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -118,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jQuery/animations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+            <state relative-caret-position="272">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -231,12 +225,12 @@
       <workItem from="1536885412556" duration="13000" />
       <workItem from="1537302279873" duration="10019000" />
       <workItem from="1537839269414" duration="1990000" />
-      <workItem from="1537841398022" duration="8895000" />
+      <workItem from="1537841398022" duration="9548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27434000" />
+    <option name="totallyTimeSpent" value="28087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -320,8 +314,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jQuery/animations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
