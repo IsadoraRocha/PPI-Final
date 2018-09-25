@@ -26,10 +26,7 @@ a{
     padding: 40px;
     text-decoration: none;
 }
-a:visited{
-    color: aqua;
-    text-decoration: none;
-}
+
 
 a:hover{
     font-weight: bold;

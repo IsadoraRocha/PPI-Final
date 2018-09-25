@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/acessoRestritoCSS.css">
     <link rel="stylesheet" href="css/indexCSS.css">
+    <script src = "jQuery/animations.js"></script>
 </head>
 <body>
 <nav>
@@ -17,129 +18,118 @@
     <div>
         <thead>
         <tr>
-            <th><a href="#clientes">Cadastrar clientes</a></th>
-            <th><a href="#funcionarios">Cadastrar Funcionários</a></th>
-            <th><a href="#imóveis">Cadastrar imóveis</a></th>
-            <th><a href="#">Sair</a></th>
+            <th><a href="#clientes" id="linkClientes">Cadastrar clientes</a></th>
+            <th><a href="#funcionarios" id="linkFuncionarios">Cadastrar Funcionários</a></th>
+            <th><a href="#imóveis" id="linkImoveis">Cadastrar imóveis</a></th>
+            <th><a href="#">Sair</a></th><br>
+        </tr>
+        <tr>
+            <th><a href="#">Consultar clientes</a></th>
+            <th><a href="#">Consultar Funcionários</a></th>
+            <th><a href="#">Consultar imóveis</a></th>
         </tr>
         </thead>
     </div>
 </nav>
     <div class="container">
         <div id = "clientes">
-            <form action="acessoRestrito.html">
-                <fieldset>
-                    <legend>Cadastro de clientes</legend>
-                    <div>
-                        Nome:
-                        <br>
-                        <input type="text" name="nome" style="width: 30%">
-                    </div>
-                    <div>
-                        Sobre nome:
-                        <br>
-                        <input type="text" name="sobreNome" style="width: 30%">
-                    </div>
-                    <div>
-                        CPF:
-                        <br>
-                        <input type="number" name="cpf" style="width: 30%" maxlength="11">
-                    </div>
-                    <div>
-                        Telefone:
-                        <br>
-                        <input type="tel" name="telefone" style="width: 30%">
-                    </div>
-                </fieldset>
-            </form>
+            <h2>Cadastro de clientes</h2><br>
+
+            Nome:
+            <br>
+            <input type="text" name="nome" style="width:25%"><br>
+
+            Sobre nome:
+            <br>
+            <input type="text" name="sobreNome" style="width: 30%"><br>
+
+            CPF:
+            <br>
+            <input type="number" name="cpf" style="width: 13%" maxlength="11"><br>
+
+            Telefone:
+            <br>
+            <input type="tel" name="telefone" maxlength="12" style="width: 14%"><br>
+
+            <br><input type="submit" value="Cadastrar">
         </div>
 
-            <div id = "funcionarios">
-                <form action="acessoRestrito.html">
-                    <fieldset>
-                        <legend>Cadastro de Funcionários</legend>
-                        <div>
-                            Nome:
-                            <br>
-                            <input type="text" name="nome" style="width: 30%">
-                        </div>
-                        <div>
-                            Sobre nome:
-                            <br>
-                            <input type="text" name="sobreNome" style="width: 30%">
-                        </div>
-                        <div>
-                            CPF:
-                            <br>
-                            <input type="number" name="cpf" style="width: 30%" maxlength="11">
-                        </div>
-                        <div>
-                            Telefone:
-                            <br>
-                            <input type="tel" name="telefone" style="width: 30%">
-                        </div>
-                        <div>
-                            Data de nascimento:
-                            <br>
-                            <input type="date" name="nascimento">
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+        <div id = "funcionarios">
+            <h2>Cadastro de Funcionários</h2><br>
+
+            Nome:
+            <br>
+            <input type="text" name="nome" style="width: 25%"><br>
+
+            Sobre nome:
+            <br>
+            <input type="text" name="sobreNome" style="width: 30%"><br>
+
+            CPF:
+            <br>
+            <input type="number" name="cpf" style="width: 13%" maxlength="11"><br>
+
+            Telefone:
+            <br>
+            <input type="tel" name="telefone" maxlength="12" style="width: 14%"><br>
+
+            Data de nascimento:
+            <br>
+            <input type="date" name="nascimento"><br>
+
+            <br><input type="submit" value="Cadastrar">
+        </div>
+
         <div id = "imóveis">
-            <form action="acessoRestrito.html">
-                <fieldset>
-                    <legend>Cadastro de Imóveis</legend>
-                    Título:
-                    <br>
-                    <input type="text" name="Título" style="width: 30%"> <br>
+            <h2>Cadastro de Imóveis</h2>
+            Título:
+            <br>
+            <input type="text" name="Título" style="width: 30%"> <br>
 
-                    <br>Tipo do imóvel:
-                    <select name = "tipoImovel">
-                        <option value="casa">Casa</option>
-                        <option value="ap">Apartamento</option>
-                        <option value="flet">Flet</option>
-                    </select>
+            <br>Tipo do imóvel:
+            <select name = "tipoImovel">
+                <option value="casa">Casa</option>
+                <option value="ap">Apartamento</option>
+                <option value="flet">Flet</option>
+            </select>
 
-                    Data de construção: <input type="date" name="data"> <br>
+            Data de construção: <input type="date" name="data"> <br>
 
-                    <br>Imóvel novo <input type="radio" name="novo">
-                    Imóvel usado <input type="radio" name="usado"><br>
+            <br>Imóvel novo <input type="radio" name="novo">
+            Imóvel usado <input type="radio" name="usado"><br>
 
-                    <br>Aluguel <input type="radio" name="aluguel">
-                    Venda <input type="radio" name="venda"><br>
+            <br>Aluguel <input type="radio" name="aluguel">
+            Venda <input type="radio" name="venda"><br>
 
-                    <br>Endereço:
-                    <br>
-                    <input type="text" name="endereco" style="width: 50%"><br>
+            <br>Endereço:
+            <br>
+            <input type="text" name="endereco" style="width: 50%">
 
-                    <div style="float: left"><br>
-                        <div class="caracteristicas">Número de quartos: <input type="number" max="10" min="0" maxlength="2" name="quartos" style="width: 30px"></div>
+            <div style="float: left"><br>
+                <div class="caracteristicas">Número de quartos: <input type="number" max="10" min="0" maxlength="2" name="quartos" style="width: 30px"></div>
 
-                        <div class="caracteristicas">Número de suítes: <input type="number" max="10" min="0" maxlength="2" name="suites" style="width: 30px"></div>
+                <div class="caracteristicas">Número de suítes: <input type="number" max="10" min="0" maxlength="2" name="suites" style="width: 30px"></div>
 
-                        <div class="caracteristicas">Número de salas: <input type="number" max="10" min="0" maxlength="2" name="salas" style="width: 30px"></div>
+                <div class="caracteristicas">Número de salas: <input type="number" max="10" min="0" maxlength="2" name="salas" style="width: 30px"></div>
 
-                        <div class="caracteristicas">Número de salas de jantar: <input type="number" max="10" min="0" maxlength="2" name="jantar" style="width: 30px"></div>
+                <div class="caracteristicas">Número de salas de jantar: <input type="number" max="10" min="0" maxlength="2" name="jantar" style="width: 30px"></div>
 
-                        <div class="caracteristicas">Número de Banheiros: <input type="number" max="10" min="0" maxlength="2" name="banheiros" style="width: 30px"></div>
+                <div class="caracteristicas">Número de Banheiros: <input type="number" max="10" min="0" maxlength="2" name="banheiros" style="width: 30px"></div>
 
-                        <div class="caracteristicas">Número de Vagas na garagem: <input type="number" max="10" min="0" maxlength="2" name="garagem" style="width: 30px"></div>
+                <div class="caracteristicas">Número de Vagas na garagem: <input type="number" max="10" min="0" maxlength="2" name="garagem" style="width: 30px"></div>
 
-                        <div class="caracteristicas">Tamanho do terreno: <input type="number" max="10" min="0" maxlength="4" name="terreno" style="width: 30px"> m²</div>
-                    </div><br>
+                <div class="caracteristicas">Tamanho do terreno: <input type="number" max="10" min="0" maxlength="4" name="terreno" style="width: 30px"> m²</div>
+            </div><br>
 
-                    Possuí armários imbutidos?
-                    <br>
-                    Sim <input type="radio" name="sim" class="armarios">
-                    Não <input type="radio" name="nao" class="armarios"> <br>
+            Possuí armários imbutidos?
+            <br>
+            Sim <input type="radio" name="sim" class="armarios">
+            Não <input type="radio" name="nao" class="armarios"> <br><br>
 
-                    Descrição:
-                    <br>
-                    <input type="text" name="descricao" style="width: 45%; height: 3cm">
-
-                </fieldset>
-            </form>
+            Descrição:
+            <br>
+            <input type="text" name="descricao" style="width: 45%; height: 3cm"><br>
+            <br><input type="submit" value="Cadastrar">
         </div>
     </div>
 </body>
