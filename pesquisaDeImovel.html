@@ -28,6 +28,56 @@
         <div class="boasVindas">
             <h1>O que você está procurando?</h1>
         </div>
+        
+        <div class="container filtro">
+            <form action="#" method="post">
+                <div class="row">
+                    <select class="col-md-2" name="tipoDeDisponibilidade">
+                        <option value="alugar" selected>alugar</option>
+                        <option value="comprar">comprar</option>
+                    </select>
+                    <select class="col-md-2" name="bairro">
+                            <option value="bairro1" selected>Bairro 1</option>
+                    </select>
+                    <div class="col-md-2">
+                        <label for='valorMinimo'>Valor mínimo:</label>
+                        <input type="text" name="valorMinimo">
+                    </div>
+                    <div class="col-md-2">
+                        <label for='valorMaximo'>Valor mínimo:</label>
+                        <input type="text" name="valorMaximo">
+                    </div>
+                    <div class="col-md-2">
+                        <label for='outrasInformacoes'>Outras informações:</label>
+                        <input type="text" name="outrasInformacoes">
+                    </div>
+                    <button type="submit" class="col-md-2">Procurar</button>
+                </div>
+                <div class="container jumbotron">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>
+                                R$999,00<br>
+                                3 quartos<br>
+                                1 suite<br>
+                                Garagem com uma vaga
+                            </p>
+                            <button type="submit">Tenho interesse</button>
+                        </div>
+                        <div class="col-md-8">
+                                <img src="images/1.jpg" width="100" height="100" alt="Foto 1">
+                                <img src="images/1.jpg" width="100" height="100" alt="Foto 2">
+                                <img src="images/1.jpg" width="100" height="100" alt="Foto 3">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="container resultado">
+
+        </div>
+
     </div>
 </body>
 </html>
