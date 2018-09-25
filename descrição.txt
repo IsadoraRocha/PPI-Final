@@ -1,0 +1,46 @@
+Home:
+	- logotipo
+	- imagem de boas vindas
+	- Missão
+	- valores
+
+Pesquisa de imóveis:
+	- Aquisição ou Locação
+	- Bairro
+	- Valor mínimo
+	- Valor máximo
+	- Outras informações
+	- Informações resumidas do imóvel
+	- 3 pequenas fotos junto às infromações resumidas
+	- Opção de visulaizar mais informações do imóvel com todas as fotos
+	- Listagem de imóveis para enviar mensagem de interesse
+		- nome completo
+		- e-mail
+		- telefone
+		- descrição da proposta
+
+Acesso restrito:
+	- login na barra de navegação
+	- modal com login e senha
+	- pop-up de login e senha incorretos
+	- abrir em nova aba a parte restrita
+	- cadastro de funcionáarios da imobiliára
+	- cadastro de clientes
+	- cadastro de imóveis
+		- nº de quartos
+		- nº de suítes
+		- nº de salas
+		- nº de salas de jantar
+		- nº de banheiros
+		- nº vagas na garagem
+		- área em m²
+		- se possui armários
+		- no caso de apartamento:
+			- andar
+			- valor do condomínio
+			- porteiro 24hrs
+	- listagem de funcionários
+	- listagem de clientes cadastrados
+	- listagem de imóveis
+	- Listagem dos interessados de imóveis
+	- Sair
