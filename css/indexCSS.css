@@ -1,12 +1,12 @@
 body{
     background-image: url("img/parede_8.jpg");
     background-size: auto;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 nav{
     width: 100%;
-    height: 40px;
+    height: 80px;
     background-color: black;
     padding: 20px;
 }
@@ -18,6 +18,7 @@ nav{
     float: left;
     margin: 0px 200px 0px 0px;
 }
+
 
 a{
     color: white;
@@ -40,15 +41,17 @@ a:active{
     text-decoration: none;
 }
 
-div{
+.valores, .missao, .boasVindas{
     background-color: white;
     opacity: 0.8;
-    margin: 0px 50px;
+    margin: 0px 40px;
+    padding: 10px;
     height: auto;
     overflow: auto;
     border: 1px solid black;
     float: bottom;
 }
+
 
 div.body{
     background-color: white;
