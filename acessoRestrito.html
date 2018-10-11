@@ -3,81 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>Acesso Liberado</title>
+    <!--Partes Bootstrap-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!--Partes css-->
     <link rel="stylesheet" href="css/acessoRestritoCSS.css">
     <link rel="stylesheet" href="css/indexCSS.css">
+
+    <!--Partes JS-->
     <script src = "jQuery/animations.js"></script>
 </head>
 <body>
-<nav>
-    <img src="css/img/Imagem1.png" id="logo">
-    <div>
-        <thead>
-        <tr>
-            <th><a href="#clientes" id="linkClientes">Cadastrar clientes</a></th>
-            <th><a href="#funcionarios" id="linkFuncionarios">Cadastrar Funcionários</a></th>
-            <th><a href="#imóveis" id="linkImoveis">Cadastrar imóveis</a></th>
-            <th><a href="#">Sair</a></th><br>
-        </tr>
-        <tr>
-            <th><a href="#">Consultar clientes</a></th>
-            <th><a href="#">Consultar Funcionários</a></th>
-            <th><a href="#">Consultar imóveis</a></th>
-        </tr>
-        </thead>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">
+        <img src="css/img/Imagem1.png" alt="" id="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Funcionários
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Clientes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Imóveis
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>
-    <div class="container">
+<br>
+<div class="container">
         <div id = "clientes">
+            <span class="glyphicon glyphicon-log-out"></span>
             <h2>Cadastro de clientes</h2><br>
 
-            Nome:
-            <br>
-            <input type="text" name="nome" style="width:25%"><br>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome">
+            </div>
 
-            Sobre nome:
-            <br>
-            <input type="text" name="sobreNome" style="width: 30%"><br>
+            <div class="form-group">
+                <label for ="sobreNome">Sobre nome:</label>
+                <input type="text" class="form-control" name="sobreNome"  id="sobreNome"><br>
+            </div>
 
-            CPF:
-            <br>
-            <input type="number" name="cpf" style="width: 13%" maxlength="11"><br>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="number" class="form-control" name="cpf" id="cpf" maxlength="11"><br>
+            </div>
 
-            Telefone:
-            <br>
-            <input type="tel" name="telefone" maxlength="12" style="width: 14%"><br>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" maxlength="12"><br>
+            </div>
 
             <br><input type="submit" value="Cadastrar">
         </div>
 
         <div id = "funcionarios">
             <h2>Cadastro de Funcionários</h2><br>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="nomeFuncionario">Nome:</label>
+                    <input type="text" class="form-control" id="nomeFuncionario" name="nome"><br>
+                </div>
 
-            Nome:
-            <br>
-            <input type="text" name="nome" style="width: 25%"><br>
+                <div class="form-group col-md-6">
+                    <label for="sobreNomeFuncionario">Sobre nome:</label>
+                    <input type="text" class="form-control" id= "sobreNomeFuncionario" name="sobreNome"><br>
+                </div>
+            </div>
 
-            Sobre nome:
-            <br>
-            <input type="text" name="sobreNome" style="width: 30%"><br>
+            <div class="form-group col-md-8">
+                <label for="endFuncionario">Endereço:</label>
+                <input type="text" class="form-control" id="endFuncionario" name="nome"><br>
+            </div>
 
-            CPF:
-            <br>
-            <input type="number" name="cpf" style="width: 13%" maxlength="11"><br>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="telefoneFuncionario">Telefone:</label>
+                    <input type="tel" name="telefone" class="form-control" id="telefoneFuncionario" maxlength="12">
+                </div>
 
-            Telefone:
-            <br>
-            <input type="tel" name="telefone" maxlength="12" style="width: 14%"><br>
+                <div class="formm-group col-md-4">
+                    <label for="cpfFuncionario">CPF:</label>
+                    <input type="number" name="cpf" id="cpfFuncionario" class="form-control" maxlength="11"><br>
+                </div>
 
-            Data de nascimento:
-            <br>
-            <input type="date" name="nascimento"><br>
-
-            <br><input type="submit" value="Cadastrar">
+                <div class="form-group col-md-4">
+                    <label for="nascimento">Data de nascimento:</label>
+                    <input type="date" class="form-control col-md-5" id="nascimento" name="nascimento">
+                </div>
+            </div>
+                <br><input type="submit" value="Cadastrar">
         </div>
 
         <div id = "imóveis">
