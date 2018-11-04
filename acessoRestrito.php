@@ -1,3 +1,7 @@
+<?php
+require "php/cadastraCliente.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -18,40 +22,7 @@
     <script src = "jQuery/animations.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-black navbar-dark">
-    <a class="navbar-brand" href="#">
-        <img src="css/img/Imagem1.png" alt="" id="logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Funcionários
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Clientes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Imóveis
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-    </div>
-</nav>
+<?php include "php/navbar.php"; ?>
 <br>
 <div class="container">
 
@@ -66,29 +37,44 @@
             <div id="collapseOne" class="collapse show" data-parent="#accordion">
                 <div class="card-body">
                     <h2>Cadastro de clientes</h2><br>
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="nome">Nome:</label>
-                            <input type="text" class="form-control" id="nome" name="nome">
-                        </div>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="nome">Nome:</label>
+                                <input type="text" class="form-control" id="nome" name="nome">
+                            </div>
 
-                        <div class="form-group col-md-6">
-                            <label for ="sobreNome">Sobre nome:</label>
-                            <input type="text" class="form-control" name="sobreNome"  id="sobreNome"><br>
+                            <div class="form-group col-md-6">
+                                <label for ="sobreNome">Sobrenome:</label>
+                                <input type="text" class="form-control" name="sobreNome"  id="sobreNome"><br>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="cpf">CPF:</label>
-                            <input type="number" class="form-control" name="cpf" id="cpf" maxlength="11"><br>
-                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="cpf">CPF:</label>
+                                <input type="number" class="form-control" name="cpf" id="cpf" maxlength="11"><br>
+                            </div>
 
-                        <div class="form-group col-md-4">
-                            <label for="telefone">Telefone:</label>
-                            <input type="tel" class="form-control" id="telefone" name="telefone" maxlength="12"><br>
+                            <div class="form-group col-md-4">
+                                <label for="telefone">Telefone:</label>
+                                <input type="tel" class="form-control" id="telefone" name="telefone" maxlength="12"><br>
+                            </div>
                         </div>
-                    </div>
-                    <br><input type="submit" value="Cadastrar">
+                        <div class="form-group col-sm-7">
+                                <label for="email">E-mail:</label>
+                                <input type="email" class="form-control" id="email" name="email" maxlength="12"><br>
+                            </div>
+                        <br><button type="submit" class="btn btn-default">Cadastrar</button>
+                    </form>    
+                    <?php 
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+                    {  
+                        if ($msgErro == "")
+                        echo "<h3 class='text-success'>Dados armazenados com sucesso!</h3>";
+                        else
+                        echo "<h3 class='text-danger'>Cadastro não realizado: $msgErro</h3>";
+                    }
+                    ?>
                 </div>
             </div>
         </div><br>
@@ -110,14 +96,28 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="sobreNomeFuncionario">Sobre nome:</label>
+                            <label for="sobreNomeFuncionario">Sobrenome:</label>
                             <input type="text" class="form-control" id= "sobreNomeFuncionario" name="sobreNome"><br>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="endFuncionario">Endereço:</label>
-                        <input type="text" class="form-control" id="endFuncionario" name="nome"><br>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for = "cep">CEP:</label>
+                            <input type="number" class="form-control" id="cep" name="cep">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for = "rua">Rua:</label>
+                            <input type="txt" class="form-control" id="rua" name="rua">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for = "numero">Nº:</label>
+                            <input type="number" class="form-control" min="1" id="numero" name="numero">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for = "bairro">Bairro:</label>
+                            <input type="txt" class="form-control" id="bairro" name="bairro">
+                        </div>
                     </div>
 
                     <div class="row">
@@ -131,7 +131,7 @@
                             <input type="number" name="cpf" id="cpfFuncionario" class="form-control" maxlength="11"><br>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-5">
                             <label for="nascimento">Data de nascimento:</label>
                             <input type="date" class="form-control col-md-5" id="nascimento" name="nascimento">
                         </div>
@@ -154,19 +154,20 @@
                         <label for="titulo">Título:</label>
                         <input type="text"class="form-control" id="titulo" name="titulo">
                     </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="tipoImovel">Tipo de imóvel:</label>
+                            <select class="form-control" id="tipoImovel">
+                                <option>Casa</option>
+                                <option>Apartamento</option>
+                                <option>Flet</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="tipoImovel">Tipo de imóvel:</label>
-                        <select class="form-control" id="tipoImovel">
-                            <option>Casa</option>
-                            <option>Apartamento</option>
-                            <option>Flet</option>
-                        </select>
-                    </div>
-
-                    <div class = "form-group">
-                        <label for="construcao">Data de construção:</label>
-                        <input type="date" class="form-control mol-md-5" id="construcao" name="construcao">
+                        <div class = "form-group col-md-5">
+                            <label for="construcao">Data de construção:</label>
+                            <input type="date" class="form-control mol-md-5" id="construcao" name="construcao">
+                        </div>
                     </div>
                     <div>
                         <div class="form-check-inline">
@@ -195,9 +196,23 @@
                         </div>
                     </div>
                     <br>
-                    <div class="form-group">
-                        <label for = "endereco">Endereço:</label>
-                        <input type="txt" class="form-control" id="endereco" name="endereco">
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for = "cep">CEP:</label>
+                            <input type="number" class="form-control" id="cep" name="cep">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for = "rua">Rua:</label>
+                            <input type="txt" class="form-control" id="rua" name="rua">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for = "numero">Nº:</label>
+                            <input type="number" class="form-control" min="1" id="numero" name="numero">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for = "bairro">Bairro:</label>
+                            <input type="txt" class="form-control" id="bairro" name="bairro">
+                        </div>
                     </div>
 
                     <div class="row">

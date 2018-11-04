@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="ptn">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <title>Home</title>
+    <!--Partes Bootstrap-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!--Css e JavaScript-->
     <link rel="stylesheet" href="css/indexCSS.css">
     <script src = "jQuery/animations.js"></script>
 </head>
 <body>
-    <nav>
-         <img src="css/img/Imagem1.png" id="logo">
-        <div>
-            <thead>
-                <tr>
-                    <th><a href="#">Nossos imóvies</a></th>
-                    <th><a href="#">Contate-nos</a></th>
-                    <th><a href="#" onclick="login()">Login</a></th>
-                </tr>
-            </thead>
-        </div>
-    </nav>
+    <?php include "php/navbar.php"; ?>
     <div class="container" id="context">
         <div class="boasVindas">
             <h1>Seja bem vindo à nossa imobiliaria</h1>
