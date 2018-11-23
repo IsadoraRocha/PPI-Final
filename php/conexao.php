@@ -21,6 +21,7 @@ CREATE TABLE Cliente(
 	nome varchar(15),
     sobrenome varchar(30),
     cpf varchar(14),
-    telefone varchar(15)
+    telefone varchar(15),
+	email varchar(70)
 );
 -->

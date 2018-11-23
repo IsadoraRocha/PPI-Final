@@ -1,24 +1,26 @@
-body{
-    background-image: url("img/parede_8.jpg");
-    background-size: auto;
-    background-repeat: repeat;
-}
-
-nav{
-    width: 100%;
-    height: 80px;
-    background-color: black;
-    padding: 20px;
-}
-
-
 #logo{
     text-align: left;
     height: 50px;
     float: left;
-    margin: 0px 200px 0px 0px;
+    margin: auto;
 }
 
+.bobyPesquisa{
+    background-image: url("img/imagem4.jpg");
+    background-size: auto;
+    background-repeat: repeat;
+    height: 500px;
+}
+
+.headPesquisa{
+    opacity: 0.8;
+    margin: 15px;
+    height: 50px;
+    width: auto;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+}
 
 a{
     color: white;
@@ -38,30 +40,44 @@ a:active{
     text-decoration: none;
 }
 
-.valores, .missao, .boasVindas{
-    background-color: white;
-    opacity: 0.8;
-    margin: 0px 40px;
-    padding: 10px;
-    height: auto;
-    overflow: auto;
-    border: 1px solid black;
-    float: bottom;
-}
-
-
 div.body{
     background-color: white;
 }
 
 .filtro {
-    margin: 0px 40px;
-    padding: 10px;
+    background-color: white;
+    padding: 20px;
 }
 
-/* .filtro > form {
-    width: 100%;
-} */
+div.imoveis{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 40px;
+}
+
+.imagens{
+    padding-top:60px;
+}
+
+td{
+    font-size: 14.5px;
+}
+
+.carousel{
+    margin: 90px;
+}
+
+.info{
+    border-right: 1px grey solid;    
+}
+
+.container1{
+    background: none;
+    color: black;
+    text-align: center;
+}
 
 .resultado {
     margin: 0px 40px;

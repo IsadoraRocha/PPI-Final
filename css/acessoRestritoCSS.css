@@ -1,3 +1,9 @@
+body{
+    background-image: url("img/parede_8.jpg");
+    background-size: auto;
+    background-repeat: repeat;
+}
+
 fieldset{
     margin-top: 20px;
 }
