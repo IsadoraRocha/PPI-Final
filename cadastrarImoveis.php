@@ -1,3 +1,8 @@
+<?php
+    require "php/verificaSessao.php";
+	require "banco/cadastraImovelBanco.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -27,132 +32,146 @@
         <div class="card">
             <div class="card-body">
                 <h2>Cadastro de Imóveis</h2>
-                <div class="form-group">
-                    <label for="titulo">Título:</label>
-                    <input type="text"class="form-control" id="titulo" name="titulo">
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-5">
-                        <label for="tipoImovel" name="tipoImovel">Tipo de imóvel:</label>
-                        <select class="form-control" id="tipoImovel">
-                            <option value="casa">Casa</option>
-                            <option value="apartamento">Apartamento</option>
-                            <option value="flet">Flet</option>
-                        </select>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text"class="form-control" id="titulo" name="titulo">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="tipoImovel">Tipo de imóvel:</label>
+                            <select name="tipoImovel" id="tipoImovel" class="form-control">
+                                <option value="Casa">Casa</option>
+                                <option value="Apartamento">Apartamento</option>
+                                <option value="Flet">Flet</option>
+                            </select>
+                        </div>
+
+                        <div class = "form-group col-md-5">
+                            <label for="construcao">Data de construção:</label>
+                            <input type="date" class="form-control mol-md-5" id="construcao" name="construcao">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="situacao" value="novo">Imóvel novo
+                            </label>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="situacao" value="usado">Imóvel usado
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="Sim" name="aluguel">Aluguel
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="Sim" name="venda">Venda
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for = "cep">CEP:</label>
+                            <input type="number" class="form-control" id="cep" name="cep">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for = "rua">Rua:</label>
+                            <input type="txt" class="form-control" id="rua" name="rua"required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for = "numero">Nº:</label>
+                            <input type="number" class="form-control" min="1" id="numero" name="numero" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for = "bairro">Bairro:</label>
+                            <input type="txt" class="form-control" id="bairro" name="bairro" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for = "valor">Valor: </label>
+                            <input type="number" min="1" step="any" class="form-control" id="valor" name="valor" required>
+                        </div>
                     </div>
 
-                    <div class = "form-group col-md-5">
-                        <label for="construcao">Data de construção:</label>
-                        <input type="date" class="form-control mol-md-5" id="construcao" name="construcao">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for = "qtquartos">Nº quartos:</label>
+                            <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtquartos" name="qtquartos" required>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for = "qtsuites">Nº suites:</label>
+                            <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtsuites" name="qtsuites" required>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for = "qtsalas">Nº salas:</label>
+                            <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtsalas" name="qtsalas" required>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for = "qtjantar">Nº salas de jantar:</label>
+                            <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtjantar" name="qtjantar" required>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for = "qtbanheiros">Nº banheiros:</label>
+                            <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtbanheiros" name="qtbanheiros" required>
+                        </div>
                     </div>
-                </div>
-                <div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for = "qtvagas">Nº vagas na garagem:</label>
+                            <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtvagas" name="qtvagas" required>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for = "terreno">Tamanho do terreno(m²):</label>
+                            <input type="number" min="30" class="form-control" id="terreno" name="terreno" required>
+                        </div>
+                    </div>
+
+                    Possui armários embutidos?
+                    <br>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" value="novo" name="novo">Imóvel novo
-                        </label>
-                    </div>
-
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" value="usado" name="usado">Imóvel usado
-                        </label>
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="alguel" name="aluguel">Aluguel
+                            <input type="radio" class="form-check-input" name="armarios" value="Sim">Sim
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="venda" name="venda">Venda
+                            <input type="radio" class="form-check-input" name="armarios" value="Nao">Não
                         </label>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="form-group col-md-5">
-                        <label for = "cep">CEP:</label>
-                        <input type="number" class="form-control" id="cep" name="cep">
+                    <br> <br>
+                    <div class="form-group">
+                        <label class="comment">Descrição:</label>
+                        <textarea class="form-control" rows="5" id="descricao" name="descricao" required></textarea>
+                        
                     </div>
-                    <div class="form-group col-md-5">
-                        <label for = "rua">Rua:</label>
-                        <input type="txt" class="form-control" id="rua" name="rua">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for = "numero">Nº:</label>
-                        <input type="number" class="form-control" min="1" id="numero" name="numero">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for = "bairro">Bairro:</label>
-                        <input type="txt" class="form-control" id="bairro" name="bairro">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for = "valor">Valor: </label>
-                        <input type="number" max="10" min="0" class="form-control" id="valor" name="valor">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-2">
-                        <label for = "qtquartos">Nº quartos:</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtquartos" name="qtquartos">
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for = "qtsuites">Nº suites:</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtsuites" name="qtsuites">
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for = "qtsalas">Nº salas:</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtsalas" name="qtsalas">
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for = "qtjantar">Nº salas de jantar:</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtjantar" name="qtjantar">
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for = "qtbanheiros">Nº banheiros:</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtbanheiros" name="qtbanheiros">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-2">
-                        <label for = "qtvagas">Nº vagas na garagem:</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="qtvagas" name="qtvagas">
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for = "terreno">Tamanho do terreno(m²):</label>
-                        <input type="number" max="10" min="0" maxlength="2" class="form-control" id="terreno" name="terreno">
-                    </div>
-                </div>
-
-                Possui armários embutidos?
-                <br>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="sim" name="armarios">Sim
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="nao" name="armarios">Não
-                    </label>
-                </div>
-                <br> <br>
-                <div class="form-group">
-                    <label class="comment">Descrição:</label>
-                    <txtarea class="form-control" rows="5" id="descricao"></txtarea>
-                </div>
-                <br><input type="submit" value="Cadastrar">
+                    <br>
+                    <!-- Selecione as fotos: <input type="file" name="fileToUpload" id="fileToUpload" required><br> -->
+                    <button type="submit" class="btn btn-default">Cadastrar</button>
+                </form>
+                <?php 
+				if ($_SERVER["REQUEST_METHOD"] == "POST") 
+				{  
+					if ($msgErro == "")
+					echo "<h3 class='text-success'>Dados armazenados com sucesso!</h3>";
+					else
+					echo "<h3 class='text-danger'>Cadastro não realizado: $msgErro</h3>";
+				}
+			    ?>
             </div>            
         </div>
     </div>

@@ -1,9 +1,4 @@
-<?php
-	// define( "HOST", "fdb22.awardspace.net" );
-	// define( "USER", "2838336_imobiliariadacidade");
-	// define( "PASSWORD", "ppifinal123");
-	// define( "DATABASE", "2838336_imobiliariadacidade");
-	
+<?php	
 	define( "HOST", "localhost" );
 	define( "USER", "root");
 	define( "PASSWORD", "");

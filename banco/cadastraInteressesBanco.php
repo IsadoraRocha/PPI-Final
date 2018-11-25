@@ -17,20 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	
   // Define e inicializa as variáveis
-  $nome = $sobreNome = $cpf = $nascimento = $bairro = "";
-  $cep = $rua = $numero =  $senhaHash = $senha = $email = $telefone = "";
+  $nome = $imovel = $proposta = $email = $telefone = "";
   
   $nome             = filtraEntrada($_POST["nome"]);     
-  $sobreNome        = filtraEntrada($_POST["sobreNome"]);
-  $cpf              = filtraEntrada($_POST["cpf"]);
-  $nascimento       = filtraEntrada($_POST["nascimento"]); 
-  $bairro           = filtraEntrada($_POST["bairro"]);
-  $cep              = filtraEntrada($_POST["cep"]);
-  $rua              = filtraEntrada($_POST["rua"]);
-  $numero           = filtraEntrada($_POST["numero"]);
-  $senha            = filtraEntrada($_POST["senha"]);
-  $email            = filtraEntrada($_POST["emailFunc"]);
+  $email            = filtraEntrada($_POST["email"]);
   $telefone         = filtraEntrada($_POST["telefone"]);
+  $imovel           = filtraEntrada($_POST["imovel"]);
+  $proposta         = filtraEntrada($_POST["proposta"]);
 
   try
 	{    
@@ -38,17 +31,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $conn = conectaAoMySQL();
 
     $sql = "
-    INSERT INTO FUNCIONARIO (NOME, SOBRENOME, CPF, NASCIMENTO, BAIRRO, CEP, RUA, NUMERO, SENHA, EMAIL, TELEFONE) 
-    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-  ";
-  
+			INSERT INTO INTERESSES (NOME, EMAIL, TELEFONE, IMOVEL, PROPOSTA) 
+			VALUES(?, ?, ?, ?, ?);
+    ";
 
     // prepara a declaração SQL (stmt é uma abreviação de statement)
     if (! $stmt = $conn->prepare($sql))
       throw new Exception("Falha na operacao prepare: " . $conn->error);
 
     // Faz a ligação dos parâmetros em aberto com os valores.
-    if (! $stmt->bind_param("sssssisisss", $nome, $sobreNome, $cpf, $nascimento, $bairro, $cep, $rua, $numero, $senha, $email, $telefone))
+    if (! $stmt->bind_param("sssis", $nome, $email, $telefone, $imovel, $proposta))
       throw new Exception("Falha na operacao bind_param: " . $stmt->error);
         
     if (! $stmt->execute())
@@ -56,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     
     $formProcSucesso = true;
   }
-	catch (Exception $e)
-	{
-		$msgErro = $e->getMessage();
-	}
-  $conn->close();
+    catch (Exception $e)
+    {
+      $msgErro = $e->getMessage();
+    }
+    mysqli_close($conn);
 }
 
 ?>

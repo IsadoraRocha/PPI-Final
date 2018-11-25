@@ -16,9 +16,6 @@
         <li class="nav-item">
           <a class="nav-link" href="pesquisaDeImovel.php">Nossos Imóveis</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contato">Contate-nos</a>
-        </li>
         <!-- Quando sessão iniciada -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -35,9 +32,9 @@
             Consultar
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="Cadastro/cadastrarCliente.php">Cliente</a>
-            <a class="dropdown-item" href="Cadastro/cadastrarFuncionario.php">Funcionário</a>
-            <a class="dropdown-item" href="Cadastro/cadastrarImoveis.php">Imóvel</a>
+            <a class="dropdown-item" href="listaCliente.php">Cliente</a>
+            <a class="dropdown-item" href="listaFuncionarios.php">Funcionário</a>
+            <a class="dropdown-item" href="listaImoveis.php">Imóvel</a>
           </div>
         </li>
       </ul>

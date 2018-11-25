@@ -1,73 +1,66 @@
 <?php
 
-require 'conectarComMYSQL.php';
+session_start();
 
-function filtraEntradaForm($data)
+require "conectarComMySQL.php";
+
+function filtraEntrada($dado) 
 {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+  $dado = trim($dado);               // remove espaços no inicio e no final da string
+  $dado = stripslashes($dado);       // remove contra barras: "cobra d\'agua" vira "cobra d'agua"
+  $dado = htmlspecialchars($dado);   // caracteres especiais do HTML (como < e >) são codificados
+  
+  return $dado;
 }
 
+$msgErro = "";
 
-function loginUsuario($email, $senha, $mysqli)
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-  $SQL = "
-    SELECT EMAIL, SENHA 
-    FROM FUNCIONARIO
-    WHERE EMAIL = ?
-    LIMIT 1
+	
+  // Define e inicializa as variáveis
+  $senha = $email = "";
+  
+  $senha            = filtraEntrada($_POST["senha"]);
+  $email            = filtraEntrada($_POST["email"]);
+
+  try
+	{    
+    // Função definida no arquivo conexaoMysql.php
+    $conn = conectaAoMySQL();
+
+    $sql = "
+    SELECT EMAIL, SENHA
+    FROM funcionario WHERE EMAIL = ? AND SENHA = ?;
   ";
-  
-  $stmt = $mysqli->prepare($SQL);
-  $stmt->bind_param('s', $email);
-  $stmt->execute();
-  $stmt->store_result();
-  
-  // Resgata o resultado nas variáveis
-  $stmt->bind_result($email, $senhaHash);
-  $stmt->fetch();
-  
-  if ($stmt->num_rows == 1)
-  {
-    if (password_verify($senha, $senhaHash))
-    {
-      // Senha correta
-      echo "Entrei";
-            
-      // Armazena dados úteis para confirmação de login
-      // em outros scripts PHP
-      $_SESSION['email'] = $email;
-      $_SESSION['loginString'] = hash('sha512', $senhaHash . $_SERVER['HTTP_USER_AGENT']);
+    // prepara a declaração SQL (stmt é uma abreviação de statement)
+    if (! $stmt = $conn->prepare($sql))
+      throw new Exception("Falha na operacao prepare: " . $conn->error);
+
+    // Faz a ligação dos parâmetros em aberto com os valores.
+    if (! $stmt->bind_param("ss", $email, $senha))
+      throw new Exception("Falha na operacao bind_param: " . $stmt->error);
+        
+    if (! $stmt->execute())
+      throw new Exception("Falha na operacao execute: " . $stmt->error);
+    
+    $stmt->bind_result($email, $senha);
+    $stmt->store_result();
+
+    if($stmt->num_rows == 1)  //To check if the row exists
+      $_SESSION['email'] = $email;        
       
-      // Sucesso no login
-      return true;
+    else {
+        echo "<script>alert(\"Usuário ou senha inválido\");</script>";
     }
-    else
-    {
-      // Senha incorreta
-      echo "Nao logado";
-      return false;
-    }
+    $stmt->close();
+    
   }
-  else
-  {
-    // Usuário não existe
-    return false;
-  }
+	catch (Exception $e)
+	{
+		$msgErro = $e->getMessage();
+	}
+  $conn->close();
 }
 
-function checkUsuarioLogadoOrDie($mysqli)
-{
-  if (!isset($_SESSION['email']))
-  {
-    $mysqli->close();
-    header("Location: /index.php");
-    die();
-  }
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  loginUsuario($_POST['email'], $_POST['senha'], conectaAoMySQL());
-}
+?>

@@ -16,9 +16,10 @@
         <li class="nav-item">
           <a class="nav-link" href="pesquisaDeImovel.php">Nossos Imóveis</a>
         </li>
-        <ul class="nav navbar-nav navbar-right">
+      </ul>
+      <ul  class="nav navbar-nav navbar-right">
         <li>
-          <button type="button" class="fas fa-sign-in-alt btn btn-outline-light" data-toggle="modal" data-target="#login">
+        <button type="button" class="fas fa-sign-in-alt btn btn-outline-light" data-toggle="modal" data-target="#login">
             Log-in
           </button>
         </li>

@@ -3,9 +3,9 @@ session_start();
 
 if (!isset($_SESSION['email']))
 {
-    // @header('Location: ');
-    //@header('Location: /isadora/index.php');
     include "php/navbarDeslogado.php";
+    // header('Location: index.php');
+	// exit;
 } else {
     include "php/navbarLogado.php";
 }

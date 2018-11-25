@@ -1,6 +1,5 @@
 <?php
-    require "php/verificaSessao.php";
-    require "banco/cadastraInteressesBanco.php";
+	require "php/verificaSessao.php";
 //	include "banco/buscaImoveisBanco.php";
 ?>
 <!DOCTYPE html>
@@ -68,43 +67,43 @@
 
     <!-- Slideshow -->
     <div class="w3-container center bobyPesquisa">
-        <div class="w3-display-container imoveis mySlides ">
-            <div class="row">
-                <div class="info col-md-3">
-                    <h6>Santa Mônica</h6>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td>Aluguel:</td>
-                            <td>R$ 800,00</td>
-                        </tr>
-                        <tr>
-                            <td>Área total:</td>
-                            <td>200 m²</td>
-                        </tr>
-                        <tr>
-                            <td>Número de quartos:</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>Vagas na garagem</td>
-                            <td>2</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col d-flex align-items-center">
-                    <table class="table table-borderless align-middle">
-                        <tbody>
-                        <tr>
-                            <td><img class="imagem img-fluid" src="css/img/imagem1.jpg" alt="imagem1"></td>
-                            <td><img class="imagem img-fluid" src="css/img/imagem2.jpg" alt="imagem2"></td>
-                            <td><img class="imagem img-fluid" src="css/img/imagem3.jpg" alt="imagem3"></td>
-                        </tr>
-                    </table>
-                </div>
+      <div class="w3-display-container imoveis mySlides ">
+        <div class="row">
+            <div class="info col-md-3">
+                <h6>Santa Mônica</h6>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Aluguel:</td>
+                        <td>R$ 800,00</td>
+                    </tr>
+                    <tr>
+                        <td>Área total:</td>
+                        <td>200 m²</td>
+                    </tr>
+                    <tr>
+                        <td>Número de quartos:</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Vagas na garagem</td>
+                        <td>2</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col d-flex align-items-center">
+                <table class="table table-borderless align-middle">
+                    <tbody>
+                    <tr>
+                        <td><img class="imagem img-fluid" src="css/img/imagem1.jpg" alt="imagem1"></td>
+                        <td><img class="imagem img-fluid" src="css/img/imagem2.jpg" alt="imagem2"></td>
+                        <td><img class="imagem img-fluid" src="css/img/imagem3.jpg" alt="imagem3"></td>
+                    </tr>
+                </table>
             </div>
         </div>
+      </div>
       
         <div class="w3-display-container imoveis mySlides">
             <div class="row">
@@ -143,19 +142,19 @@
                 </div>
             </div>
         </div>
-        <div class="w3-display-container imoveis mySlides ">
-            <div class="row">
+        <div class="w3-display-container imoveis mySlides">
+             <div class="row">
                 <div class="info col-md-3">
                     <h6>Santa Mônica</h6>
                     <table class="table">
                         <tbody>
                         <tr>
                             <td>Aluguel:</td>
-                            <td>R$ 800,00</td>
+                            <td>R$ 1200,00</td>
                         </tr>
                         <tr>
                             <td>Área total:</td>
-                            <td>200 m²</td>
+                            <td>300 m²</td>
                         </tr>
                         <tr>
                             <td>Número de quartos:</td>
@@ -180,15 +179,9 @@
                 </div>
             </div>
         </div>
-        <?php 
-            require "php/tenhoInteresse.php";
-            require "php/maisInfo.php"
-        ?>
-        <br>
-        <br>
-    </div>
-    <!-- Slideshow next/previous buttons -->
-    <div class="w3-container w3-dark-grey w3-padding w3-xlarge bg-dark">
+
+      <!-- Slideshow next/previous buttons -->
+      <div class="w3-container w3-dark-grey w3-padding w3-xlarge bg-dark">
         <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
         <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
       
@@ -198,6 +191,7 @@
           <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
         </div>
       </div>
+    </div>
     <?php include "php/footer.php"; ?>
   <!-- Footer -->  
    

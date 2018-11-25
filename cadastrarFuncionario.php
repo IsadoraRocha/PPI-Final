@@ -1,8 +1,7 @@
 <?php
-    //require "php/verificaSessao.php";
+    require "php/verificaSessao.php";
 	require "banco/cadastraFuncionarioBanco.php";
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
@@ -94,7 +93,7 @@
                 </div>
 
                 <br>
-                <br><button type="submit" class="btn btn-default" name="botaoCliente">Cadastrar</button>
+                <br><button type="submit" class="btn btn-default" name="botaoFuncionario">Cadastrar</button>
             </form>
             <?php 
 				if ($_SERVER["REQUEST_METHOD"] == "POST") 

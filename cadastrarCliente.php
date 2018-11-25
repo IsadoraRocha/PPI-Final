@@ -1,5 +1,5 @@
 <?php
-	//require "php/verificaSessao.php";
+	require "php/verificaSessao.php";
 	require "banco/cadastraClienteBanco.php";
 ?>
 
@@ -49,7 +49,7 @@
 
 						<div class="form-group col-md-4">
 							<label for="telefone">Telefone:</label>
-							<input type="tel" class="form-control" id="telefone" name="telefone" maxlength="12"><br>
+							<input type="tel" class="form-control" id="telefone" name="telefone" maxlength="15"><br>
 						</div>
 					</div>
 					<div class="form-group col">
